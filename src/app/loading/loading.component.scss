@@ -1,0 +1,35 @@
+.loading {
+    width: 100%;
+    background-color: red;
+    max-width: 25rem;
+    margin: 0 auto;
+    background-color: var(--clr-white);
+    box-shadow: var(--box-shadow);
+    border-radius: var(--border-radius);
+    padding: 2.25rem 1.875rem 2.75rem 2rem;
+
+    &__heading {
+        font-size: var(--font-big);
+        color: var(--clr-text-primary);
+    }
+
+    &__line {
+        display: block;
+        width: 100%;
+        border-radius: var(--border-radius-small);
+        height: 0.375rem;
+        background-color: var(--clr-gray);
+        margin-top: 1.875rem;
+        overflow: hidden;
+
+        &::before {
+            content: "";
+            display: block;
+            height: 100%;
+            width: 30%;
+            background-color: var(--clr-cta);
+            border-radius: inherit;
+            animation: 2s moveLeft linear infinite;
+        }
+    }
+}
