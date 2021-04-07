@@ -6,6 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { UploadComponent } from './upload/upload.component';
+import { LoadingComponent } from './loading/loading.component';
 
 const routes: Routes = [
   {path: '', component: UploadComponent}
@@ -15,7 +16,8 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    UploadComponent
+    UploadComponent,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,

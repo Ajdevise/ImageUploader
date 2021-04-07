@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+import { Component, OnInit  } from '@angular/core';
+import { FileUploadService } from '../file-upload.service';
 
 @Component({
   selector: 'app-upload',
@@ -8,29 +9,20 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./upload.component.scss']
 })
 export class UploadComponent implements OnInit {
-  @ViewChild("submit", { static: true }) submitBtn: ElementRef;
-  form: FormGroup;
+  fileToUpload: File = null;
   isDraggedOver = false;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fileUploadService: FileUploadService) { }
 
   ngOnInit() {
-    this.form = this.fb.group({
-      file: []
-    })
-  }
 
-  submitImage() {
-    if(this.isImage(this.form.value.file)) {
-      this.submitBtn.nativeElement.click();
-    } else {
-      alert("Only images allowed");
-    }
   }
 
   dropImg(e) {
     e.preventDefault();
     this.isDraggedOver = false;
+    this.fileToUpload = e.dataTransfer.items[0].getAsFile();
+    this.postFiles();
   }
 
   dragOver(e) {
@@ -47,9 +39,16 @@ export class UploadComponent implements OnInit {
     return file.match(/[\/.](jpg|jpeg|png)$/i);
   }
 
-  submitForm() {
-    console.log("submitted");
+  sendImgToServer(files: FileList) {
+    this.fileToUpload = files.item(0);
+    this.postFiles();
+  }
+
+  postFiles() {
+    if(this.isImage(this.fileToUpload.name)) {
+      this.fileUploadService.postFile(this.fileToUpload).subscribe(res => console.log(res), err => alert(err.error));
+    } else {
+      alert("You have to upload an image");
+    }
   }
 }
-
-// console.log(e.dataTransfer.items[0].getAsFile());

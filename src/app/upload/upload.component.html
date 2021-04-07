@@ -3,15 +3,14 @@
         <h2 class="heading">Upload your image</h2>
         <p class="subheading">File should be Jpeg, Png...</p>
     </header>
-    <form action="http://127.0.0.1/upload" method="post" enctype="multipart/form-data" [formGroup]="form" (ngSubmit)="submitForm()">
+    <form>
         <label aria-labelledby="label-upload-text" (drop)="dropImg($event)" (dragover)="dragOver($event)" (dragleave)="dragLeave($event)" [ngClass]="{'dragged-over': isDraggedOver}">
             <span id="label-upload-text" hidden>Upload</span>
             <img src="../assets/image.svg" alt="" aria-hidden="true">
             <span aria-hidden="true">Drag & Drop your image here</span>
-            <input type="file" accept="image/*" name="image" (input)="submitImage(file)" formControlName="file" #file>
+            <input type="file" accept="image/*" name="img" (input)="sendImgToServer($event.target.files)" #file>
         </label>
         <p aria-hidden="true" class="separator">Or</p>
         <button class="cta" type="button" aria-hidden="true" (click)="file.click()">Choose a file</button>
-        <button type="submit" tabindex="-1" aria-hidden="true" #submit>Submit</button>
     </form>
 </section>
