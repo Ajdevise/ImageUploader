@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { UploadComponent } from './upload/upload.component';
 import { LoadingComponent } from './loading/loading.component';
+import { UploadedComponent } from './uploaded/uploaded.component';
 
 const routes: Routes = [
   {path: '', component: UploadComponent}
@@ -17,7 +18,8 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     UploadComponent,
-    LoadingComponent
+    LoadingComponent,
+    UploadedComponent
   ],
   imports: [
     BrowserModule,

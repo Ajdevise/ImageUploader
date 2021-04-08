@@ -1,0 +1,44 @@
+.uploaded {
+    width: 100%;
+    max-width: 25rem;
+    background-color: var(--color-white);
+    box-shadow: var(--box-shadow);
+    border-radius: var(--border-radius);
+    padding: 2.4375rem 2rem 2.1875rem 2rem;
+    margin: 0 auto;
+    text-align: center;
+
+    img {
+        width: 100%;
+        border-radius: var(--border-radius);
+    }
+
+    svg {
+        --radius: 2.1875rem;
+        width: var(--radius);
+        height: var(--radius);
+    }
+
+    h2 {
+        font-size: var(--font-big);
+        color: var(--clr-text-primary);
+        font-weight: 500;
+        margin-bottom: 1.5625rem;
+        margin-top: .3rem;
+    }
+
+    .image__link {
+        font-size: .5rem;
+        color: var(--clr-text-primary);
+        margin-left: .5rem;
+    }
+
+    .wrapper {
+        background-color: var(--clr-upload-background);
+        border: 1px solid var(--clr-border);
+        border-radius: var(--border-radius-small);
+        padding: .2rem;
+        justify-content: space-between; 
+        margin-top: 1.5625rem;
+    }
+}

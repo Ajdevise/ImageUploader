@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="68" height="70" viewBox="0 0 68 70">
+  <g id="Group_1" data-name="Group 1" transform="translate(-175 -169)">
+    <g id="Ellipse_1" data-name="Ellipse 1" transform="translate(175 169)" fill="#219653" stroke="#219653" stroke-width="1">
+      <ellipse cx="34" cy="35" rx="34" ry="35" stroke="none"/>
+      <ellipse cx="34" cy="35" rx="33.5" ry="34.5" fill="none"/>
+    </g>
+    <path id="checkmark2" d="M12.42,28.678-.013,16.44l6.168-6.071,6.265,6.167L25.846,3.322l6.168,6.071ZM3.372,16.441l9.048,8.905L28.628,9.393,25.846,6.654,12.42,19.868,6.155,13.7,3.373,16.44Z" transform="translate(193.013 188.678)" fill="#fff"/>
+  </g>
+</svg>
