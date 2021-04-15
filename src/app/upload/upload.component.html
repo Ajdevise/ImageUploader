@@ -1,4 +1,4 @@
-<section>
+<section *ngIf="!loading">
     <header>
         <h2 class="heading">Upload your image</h2>
         <p class="subheading">File should be Jpeg, Png...</p>
@@ -14,3 +14,4 @@
         <button class="cta" type="button" aria-hidden="true" (click)="file.click()">Choose a file</button>
     </form>
 </section>
+<app-loading *ngIf="loading"></app-loading>

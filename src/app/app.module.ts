@@ -8,9 +8,11 @@ import { AppComponent } from './app.component';
 import { UploadComponent } from './upload/upload.component';
 import { LoadingComponent } from './loading/loading.component';
 import { UploadedComponent } from './uploaded/uploaded.component';
+import { CopyClipboardDirective } from './copy-clipboard.directive';
 
 const routes: Routes = [
-  {path: '', component: UploadComponent}
+  {path: '', component: UploadComponent},
+  {path: 'uploaded/:id', component: UploadedComponent}
 ]
 
 
@@ -19,7 +21,8 @@ const routes: Routes = [
     AppComponent,
     UploadComponent,
     LoadingComponent,
-    UploadedComponent
+    UploadedComponent,
+    CopyClipboardDirective
   ],
   imports: [
     BrowserModule,

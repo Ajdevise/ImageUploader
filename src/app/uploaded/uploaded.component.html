@@ -1,4 +1,5 @@
-<section class="uploaded">
+<section class="uploaded" #section>
+    <a routerLink="">&larr;</a>
     <svg xmlns="http://www.w3.org/2000/svg" width="68" height="70" viewBox="0 0 68 70">
         <g id="Group_1" data-name="Group 1" transform="translate(-175 -169)">
           <g id="Ellipse_1" data-name="Ellipse 1" transform="translate(175 169)" fill="#219653" stroke="#219653" stroke-width="1">
@@ -9,9 +10,9 @@
         </g>
       </svg>    
       <h2>Uploaded Successfully</h2>
-      <img src="http://127.0.0.1:3000/upload/606d5f8aba9aa007bc4332d2" alt="">  
+      <img [src]="link" alt="Uploaded image">  
       <div class="flex align-center wrapper">
-        <p class="image__link">http://127.0.0.1:3000/upload/606d5f8aba9aa007bc...</p>
-        <button class="cta">Copy Link</button>
+        <p class="image__link">{{ (section.clientWidth <= 375) ? (link | slice:0:38) + "..." : link }}</p>
+        <button class="cta" [copy-clipboard]="link" (copied)="changeText(copy)" #copy>Copy Link</button>
       </div>
 </section>

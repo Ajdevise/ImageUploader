@@ -5,7 +5,7 @@
     box-shadow: var(--box-shadow);
     border-radius: var(--border-radius);
     padding: 2.4375rem 2rem 2.1875rem 2rem;
-    margin: 0 auto;
+    margin: 1rem auto;
     text-align: center;
 
     img {
@@ -40,5 +40,13 @@
         padding: .2rem;
         justify-content: space-between; 
         margin-top: 1.5625rem;
+    }
+
+    a {
+        display: block;
+        text-align: left;
+        color: var(--clr-cta);
+        text-decoration: none;
+        font-size: 2rem;
     }
 }

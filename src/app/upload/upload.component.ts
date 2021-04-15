@@ -1,6 +1,5 @@
-import { HttpClient } from '@angular/common/http';
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit  } from '@angular/core';
+import { Router } from '@angular/router';
 import { FileUploadService } from '../file-upload.service';
 
 @Component({
@@ -9,10 +8,11 @@ import { FileUploadService } from '../file-upload.service';
   styleUrls: ['./upload.component.scss']
 })
 export class UploadComponent implements OnInit {
-  fileToUpload: File = null;
   isDraggedOver = false;
+  fileToUpload: File = null;
+  loading = false;
 
-  constructor(private fileUploadService: FileUploadService) { }
+  constructor(private fileUploadService: FileUploadService, private router: Router) { }
 
   ngOnInit() {
 
@@ -46,7 +46,11 @@ export class UploadComponent implements OnInit {
 
   postFiles() {
     if(this.isImage(this.fileToUpload.name)) {
-      this.fileUploadService.postFile(this.fileToUpload).subscribe(res => console.log(res), err => alert(err.error));
+      this.loading = true;
+      this.fileUploadService.postFile(this.fileToUpload).subscribe((res) => {
+        this.loading = false;
+        this.router.navigate(['uploaded', res["_id"]]);
+      }, err => alert(err.error));
     } else {
       alert("You have to upload an image");
     }
