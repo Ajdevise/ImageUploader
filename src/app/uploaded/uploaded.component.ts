@@ -23,8 +23,4 @@ export class UploadedComponent implements OnInit {
   changeText(button: HTMLButtonElement) {
     button.textContent = "Copied!";
   }
-
-  getWidth(paragraph: HTMLParagraphElement) {
-    console.log(paragraph);
-  }
 }
